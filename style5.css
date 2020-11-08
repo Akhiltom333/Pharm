@@ -1,0 +1,23 @@
+body
+ { 
+  background-image: url("F5.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('F5.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+ background-size:cover;
+background-attachment: fixed;
+     
+}
+a {
+  color: white;
+}
+#MainTable {
+    width: 100%;
+    background-color: #D8F0DA;
+    border: 1px;
+    min-width: 100%;
+    position: relative;
+    opacity: 0.97;
+    background: transparent;
+}
