@@ -4,120 +4,57 @@
 <center><font color="white" size="6"><b>REGISTRATION</b></font></center>
 <title>FMS2</title>
 <link type="text/css"  rel ="stylesheet" href ="style2.css">
-<script >
-function myFunction(){
-    var x =document.getElementById("n1").value;
-    var letters = /^[A-Za-z\s]+$/;
-    if (x == ""){
-      alert("Name field must be filled!");
-      return false;
-    }
-    if (n1.value.match(letters)) {
-      return true;
-    }
-    else {
-      alert("Name field must contains only letters!")
-      return false;
-    }
-}
-  function myFunctionEmail(){
-    var e = document.forms["myForm"]["e1"].value;
-    var mailformat = /^([A-Za-z0-9\.]{4,30})+@[a-z.]+\.+[a-z]+$/;
-    if (e == ""){
-      alert("We must require an valid email!");
-      return false;
-    }
-    if (e1.value.match(mailformat)){
-      return true;
-    }
-    else {
-      alert("This is not an email id, Make sense please..!")
-      return false;
-    }
-  }
-
-  function password(){
-    pas_patt=/^(?=.*[!@#$%^&*(,.?":\[\]{}|<>\ ])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    var box=document.getElementById("pass").value
-    if (box == ""){
-      alert("We must require a password with upper and lower case letters with numbers and symbols !");
-      return false;
-    }
-    else if (box.match(pas_patt)){
-      return true;
-    }
-    else {
-      alert("We must require a password with upper and lower case letters with numbers and symbols !")
-      return false;
-    }
-  }
-function val_pass(){
-    var box=document.getElementById("passtwo").value;
-    if (box==""){
-      alert("Enter the same password");
-      return false;
-    }
-    else if(box==document.getElementById("pass").value){
-      return true;
-    }
-    else{
-      alert("Enter the same password")
-      return false;
-    }
-}
-
-</script>
+<script src="js/validation.js"></script>
 </head>
 
 <body>
 
-<center><b><a href="D:\project\Home.html">HOME</a></b></center>
+<center><b><a href="Home.html">HOME</a></b></center>
 <font color="white">
 <center><fieldset>
 <legend>REGISTRATION</legend>
-<form name = "myForm" action="Login.html">
+
+<form method=POST name="myForm" id="reg" action="Reg.php">
  <table  align='center'>
 <tr>
     <td align='center'>Name:</td>
-    <td><input type='text' name='name' id="n1" onblur="myFunction()"></td>
+    <td><input type='text' name='tname' id="n1" onblur="full_name(this.id)"></td>
 </tr>
 <tr>
     <td align='center'>Address:</td>
-    <td><textarea rows='4' cols='20' required></textarea></td>
+    <td><textarea rows='4' cols='20' name='tadd' required></textarea></td>
 </tr>
 <tr>
  <td align='center'>Gender:</td>
     <td>
-      <input type="radio" id="m" name="gender" >male
-      <input type="radio" id="f" name="gender" >female
+      <input value="male" type="radio" id="m" name="gender" checked >male
+      <input value="female" type="radio" id="f" name="gender" >female
     </td>
   <tr>
     <td align='center'>Email:</td>
-    <td><input type='email' name='name' id = "e1" onblur="myFunctionEmail()"></td>
+    <td><input type='email' name='tema' id = "e1" onblur="email_id(this.id)"></td>
 </tr>
 <tr>
     <td align='center'>Phone:</td>
-    <td><input type='number' name='name' required></td>
+    <td><input type='text' name='tph' id="ph" onblur="phone_no(this.id)" required></td>
 </tr>
 <tr>
 <td align='center'>Password:</td>
-<td><input type="Password"  name="pwd" id="pass" onblur="password()" required></td>
+<td><input onblur="pass(this.id)" type="Password" name="tpass" id="passone"  required></td>
 </tr>
 <tr>
 <td align='center'>Confirm Password:</td>
-<td><input type="Password" id="passtwo" onblur="val_pass()" name="pwd" required></td>
-</tr>
-<tr>
-<td colspan='2'><center><input type='checkbox' required> Accept terms and condition</td>
+<td><input type="Password" id="passtwo" onblur="con_pass(this.id)" name="pwd" required></td>
 </tr>
 <tr>
 <td colspan="2" align="center">
-<input type="submit" value="Submit" onsubmit="myFunction();">
+<input type="button" value="Submit" onclick="val('reg')">
 <input type="reset" value="Reset">
 </td>
 </tr>
 </table>
-<center>already registerd <a href="D:\project\Login.html"><font color = "red" >click here </font></a></b>
+</form>
+<center>already registerd <a href="Login.html"><font color = "red" >click here </font></a></b>
 </a>
 </fieldset>
 <center><p><B><font color="white" size="5"><i><br><br>"Best clinical decisions are at the heart of appropriate care, the goal to which our system should aspire."</font></B></p>
